@@ -21,6 +21,7 @@ module.exports = {
     {
       files: ["*.tsx"],
       extends: ["plugin:react-hooks/recommended"],
+      plugins: ["unused-imports"],
     },
   ],
   ignorePatterns: [
@@ -38,6 +39,15 @@ module.exports = {
     ],
     "@typescript-eslint/no-explicit-any": ["warn"],
     "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        vars: "all",
+        varsIgnorePattern: "^_",
+        args: "after-used",
+        argsIgnorePattern: "^_",
+      },
+    ],
     "react/react-in-jsx-scope": "off",
     "react/self-closing-comp": [
       "error",
